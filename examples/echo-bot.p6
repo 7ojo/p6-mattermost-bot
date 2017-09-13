@@ -30,6 +30,6 @@ my $application = route {
         }
     }
 }
-my Cro::Service $echo = Cro::HTTP::Server.new: :host<localhost>, :port<64321>, :$application;
+my Cro::Service $echo = Cro::HTTP::Server.new: :host<127.0.0.1>, :port<4444>, :$application;
 $echo.start;
 react whenever signal(SIGINT) { $echo.stop; exit; }
